@@ -1,0 +1,203 @@
+<!-- @dsCard group="Website" viewport="1280x820" name="點點綠官網" subtitle="五頁互動 click-through：首頁 / 品牌牆 / 關於 / 市集資訊 / 加入我們" -->
+<!-- @startingPoint section="Website" subtitle="點點綠官網 5 頁 click-through" viewport="1280x820" -->
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>點點綠官網 · UI Kit</title>
+  <link rel="stylesheet" href="../../styles.css">
+  <style>
+    html,body{margin:0;background:var(--paper)}
+    #root{min-height:100vh}
+    #loading{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;gap:10px;font-family:var(--font-body);color:var(--text-muted)}
+    #loading span{width:12px;height:12px;border-radius:999px;animation:pp 1s infinite ease-in-out}
+    #loading span:nth-child(1){background:var(--cat-food)}
+    #loading span:nth-child(2){background:var(--cat-tribe);animation-delay:.15s}
+    #loading span:nth-child(3){background:var(--cat-craft);animation-delay:.3s}
+    @keyframes pp{0%,100%{transform:translateY(0);opacity:.5}50%{transform:translateY(-8px);opacity:1}}
+  </style>
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+  <div id="loading"><span></span><span></span><span></span></div>
+  <div id="root"></div>
+  <canvas id="dot-trail" aria-hidden="true" style="position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:95"></canvas>
+
+  <script>
+    // ---- Minimal in-browser ES-module loader (single source of truth) ----
+    const FILES = [
+      "./data.js",
+      "./Home.jsx", "./Brands.jsx", "./About.jsx", "./Info.jsx", "./Join.jsx", "./Calendar.jsx",
+      "../../components/foundation/Dot.jsx",
+      "../../components/buttons/Button.jsx",
+      "../../components/feedback/CategoryTag.jsx",
+      "../../components/layout/SectionHeader.jsx",
+      "../../components/brand/BrandCard.jsx",
+      "../../components/brand/BrandSheet.jsx",
+      "../../components/navigation/Navbar.jsx",
+      "../../components/navigation/Footer.jsx",
+      "../../components/navigation/CategoryFilter.jsx"
+    ];
+    const mods = {}; // href -> { code, module, executed }
+
+    async function boot(){
+      await Promise.all(FILES.map(async (rel) => {
+        const href = new URL(rel, document.baseURI).href;
+        const src = await (await fetch(rel)).text();
+        const { code } = Babel.transform(src, {
+          presets: [["react", { runtime: "classic" }]],
+          plugins: ["transform-modules-commonjs"],
+          filename: href
+        });
+        mods[href] = { code, module: { exports: {} }, executed: false };
+      }));
+
+      const requireFrom = (importerHref) => (spec) => {
+        if (spec === "react") return window.React;
+        if (spec === "react-dom" || spec === "react-dom/client") return window.ReactDOM;
+        const href = new URL(spec, importerHref).href;
+        const m = mods[href];
+        if (!m) throw new Error("module not found: " + spec + " from " + importerHref);
+        if (!m.executed) exec(href);
+        return m.module.exports;
+      };
+      const exec = (href) => {
+        const m = mods[href];
+        m.executed = true;
+        const fn = new Function("require", "module", "exports", "React", m.code);
+        fn(requireFrom(href), m.module, m.module.exports, window.React);
+      };
+
+      const entry = (rel) => {
+        const href = new URL(rel, document.baseURI).href;
+        if (!mods[href].executed) exec(href);
+        return mods[href].module.exports;
+      };
+
+      const { Home } = entry("./Home.jsx");
+      const { Brands } = entry("./Brands.jsx");
+      const { About } = entry("./About.jsx");
+      const { Info } = entry("./Info.jsx");
+      const { Join } = entry("./Join.jsx");
+      const { Calendar } = entry("./Calendar.jsx");
+      const SCREENS = { "/": Home, "/brands": Brands, "/calendar": Calendar, "/about": About, "/info": Info, "/join": Join };
+
+      const { useState, useEffect } = window.React;
+      function App(){
+        const [route, setRoute] = useState("/");
+        const nav = (href) => {
+          setRoute(SCREENS[href] ? href : "/");
+          window.scrollTo({ top: 0, behavior: "instant" in window ? "instant" : "auto" });
+        };
+        const Screen = SCREENS[route] || Home;
+        return window.React.createElement(Screen, { onNavigate: nav });
+      }
+
+      document.getElementById("loading").style.display = "none";
+      window.ReactDOM.createRoot(document.getElementById("root")).render(window.React.createElement(App));
+    }
+
+    boot().catch((e) => {
+      console.error(e);
+      document.getElementById("loading").innerHTML =
+        '<span style="font-family:monospace;color:#b96a4b">載入失敗：' + e.message + "</span>";
+    });
+  </script>
+
+  <script>
+    // ──── 滑動水波紋：單一綠點跟隨指尖/滑鼠，帶淺淺漣漪，停下優雅淡出 ────
+    (function () {
+      var canvas = document.getElementById("dot-trail");
+      if (!canvas) return;
+      var ctx = canvas.getContext("2d");
+      var LEAF = "87,160,95"; // --leaf #57A05F
+      var dpr = Math.min(window.devicePixelRatio || 1, 2);
+      var pos = null;      // 目前顯示位置（緩慢跟隨）
+      var target = null;   // 指尖/滑鼠位置
+      var energy = 0;      // 0..1 移動能量，決定點的可見度
+      var ripples = [];    // 漣漪圈
+      var lastRipple = 0, running = false, lastMoveT = 0;
+
+      function resize() {
+        canvas.width = innerWidth * dpr; canvas.height = innerHeight * dpr;
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      }
+      resize();
+      addEventListener("resize", resize);
+
+      function wake() { if (!running) { running = true; requestAnimationFrame(tick); } }
+
+      function onMove(x, y) {
+        target = { x: x, y: y };
+        if (!pos) pos = { x: x, y: y };
+        lastMoveT = performance.now();
+        wake();
+      }
+
+      addEventListener("touchmove", function (e) {
+        var t = e.touches[0]; if (t) onMove(t.clientX, t.clientY);
+      }, { passive: true });
+      addEventListener("touchstart", function (e) {
+        var t = e.touches[0]; if (t) onMove(t.clientX, t.clientY);
+      }, { passive: true });
+      addEventListener("mousemove", function (e) { onMove(e.clientX, e.clientY); }, { passive: true });
+
+      function tick(now) {
+        ctx.clearRect(0, 0, innerWidth, innerHeight);
+
+        var moving = now - lastMoveT < 120;
+        // 能量：移動時升起，停下後緩慢消散（優雅結束）
+        energy += ((moving ? 1 : 0) - energy) * (moving ? 0.14 : 0.035);
+
+        if (pos && target) {
+          // 點緩慢跟隨，像浮在水面
+          pos.x += (target.x - pos.x) * 0.16;
+          pos.y += (target.y - pos.y) * 0.16;
+
+          // 週期性放出漣漪（移動中較密，停下後放完最後一圈）
+          if (energy > 0.05 && now - lastRipple > (moving ? 260 : 900)) {
+            ripples.push({ x: pos.x, y: pos.y, r: 6, max: 44 + Math.random() * 18, life: 1 });
+            lastRipple = now;
+          }
+
+          // 漣漪：淡描邊圓圈向外擴散
+          for (var i = ripples.length - 1; i >= 0; i--) {
+            var rp = ripples[i];
+            rp.life -= 0.012;
+            rp.r += (rp.max - rp.r) * 0.045;
+            if (rp.life <= 0) { ripples.splice(i, 1); continue; }
+            var e = rp.life * rp.life * (3 - 2 * rp.life);
+            ctx.globalAlpha = e * 0.28;
+            ctx.lineWidth = 1.5;
+            ctx.strokeStyle = "rgba(" + LEAF + ",1)";
+            ctx.beginPath();
+            ctx.arc(rp.x, rp.y, rp.r, 0, Math.PI * 2);
+            ctx.stroke();
+          }
+
+          // 單一綠點：柔光暈 + 實心
+          if (energy > 0.01) {
+            var g = ctx.createRadialGradient(pos.x, pos.y, 0, pos.x, pos.y, 22);
+            g.addColorStop(0, "rgba(" + LEAF + "," + (0.30 * energy) + ")");
+            g.addColorStop(1, "rgba(" + LEAF + ",0)");
+            ctx.globalAlpha = 1;
+            ctx.fillStyle = g;
+            ctx.beginPath(); ctx.arc(pos.x, pos.y, 22, 0, Math.PI * 2); ctx.fill();
+
+            ctx.globalAlpha = 0.9 * energy;
+            ctx.fillStyle = "rgba(" + LEAF + ",1)";
+            ctx.beginPath(); ctx.arc(pos.x, pos.y, 5.5, 0, Math.PI * 2); ctx.fill();
+          }
+        }
+        ctx.globalAlpha = 1;
+
+        if (energy > 0.01 || ripples.length) { requestAnimationFrame(tick); }
+        else { running = false; ctx.clearRect(0, 0, innerWidth, innerHeight); }
+      }
+    })();
+  </script>
+</body>
+</html>

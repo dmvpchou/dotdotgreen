@@ -1,0 +1,6 @@
+/* 點點綠 Design System — global entry.
+   Consumers link ONLY this file. Contains @import lines only. */
+@import "./tokens/fonts.css";
+@import "./tokens/colors.css";
+@import "./tokens/typography.css";
+@import "./tokens/spacing.css";

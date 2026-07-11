@@ -1,0 +1,35 @@
+/* 點點綠 字體系統
+   Display: Noto Serif TC (漢字襯線，帶手感與溫度) — 標題、slogan
+   Body:    Noto Sans TC (清晰易讀) — 內文、UI、metadata */
+:root {
+  --font-display: "Noto Serif TC", "Songti TC", serif;
+  --font-body:    "Noto Sans TC", system-ui, "PingFang TC", sans-serif;
+  --font-mono:    ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  /* ---- Weights ---- */
+  --fw-light:   300;
+  --fw-regular: 400;
+  --fw-medium:  500;
+  --fw-bold:    700;
+  --fw-display: 900; /* 大標 Noto Serif TC 900 */
+
+  /* ---- Type scale (mobile-first, rem 基準 16px) ---- */
+  --fs-display: 3.25rem; /* 52 — Hero slogan */
+  --fs-h1:      2.25rem; /* 36 — 頁面主標 */
+  --fs-h2:      1.75rem; /* 28 — 區塊標 */
+  --fs-h3:      1.25rem; /* 20 — 卡片標 */
+  --fs-lg:      1.125rem;/* 18 — 導語 */
+  --fs-body:    1rem;    /* 16 — 內文 */
+  --fs-sm:      0.875rem;/* 14 — metadata */
+  --fs-xs:      0.75rem; /* 12 — 標籤 */
+
+  /* ---- Line height ---- */
+  --lh-tight:  1.15; /* 大標 */
+  --lh-snug:   1.35; /* 小標 */
+  --lh-body:   1.75; /* 中文內文，行距放寬 */
+
+  /* ---- Letter spacing ---- */
+  --ls-tight:  -0.01em;
+  --ls-normal: 0;
+  --ls-wide:   0.08em; /* 全大寫英數 / 標籤 */
+}

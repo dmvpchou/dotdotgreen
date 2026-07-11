@@ -1,0 +1,40 @@
+/* 點點綠 間距 / 圓角 / 陰影 / 尺寸
+   8pt 基準格線，圓角走有機柔和路線 (卡片 14–16px，按鈕 pill)。 */
+:root {
+  /* ---- Spacing scale (8pt base) ---- */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 24px;
+  --sp-6: 32px;
+  --sp-7: 48px;
+  --sp-8: 64px;
+  --sp-9: 96px;
+  --sp-10: 128px;
+
+  /* ---- Radius (有機柔和) ---- */
+  --r-sm:   8px;
+  --r-md:   12px;
+  --r-card: 16px;  /* 品牌卡 / 面板 */
+  --r-lg:   24px;
+  --r-pill: 999px; /* 按鈕、篩選 chip、標籤 */
+
+  /* ---- Category dot sizes (簽名元素) ---- */
+  --dot-xs: 8px;
+  --dot-sm: 12px;
+  --dot-md: 20px;
+  --dot-lg: 48px;
+  --dot-xl: 120px; /* 版面裝飾大點 */
+
+  /* ---- Elevation (暖調柔陰影，避免死黑) ---- */
+  --shadow-sm: 0 1px 2px rgba(28, 74, 42, 0.06);
+  --shadow-md: 0 4px 16px rgba(28, 74, 42, 0.08);
+  --shadow-lg: 0 12px 40px rgba(28, 74, 42, 0.12);
+
+  /* ---- Layout ---- */
+  --container:   1160px;
+  --container-narrow: 760px;
+  --gutter:      24px;
+  --header-h:    68px;
+}

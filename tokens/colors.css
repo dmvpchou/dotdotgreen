@@ -1,0 +1,50 @@
+/* 點點綠 色彩系統
+   視覺主軸「點」：每個點背後都有努力的人。
+   分類色點 (category dots) 是簽名元素，貫穿導覽、標題、品牌卡。 */
+:root {
+  /* ---- Base palette (規格書 v1) ---- */
+  --ink:   #1C4A2A; /* 深林綠 — 主文字 / 主按鈕 */
+  --leaf:  #57A05F; /* 苗綠   — 強調 / food 分類點 */
+  --honey: #E3A93C; /* 蜜黃   — 次強調 / tribe 分類點 */
+  --clay:  #B96A4B; /* 陶土   — craft 分類點 */
+  --plum:  #8B5E83; /* 莓紫   — weekday 分類點 (補齊四分類，與暖色系和諧) */
+  --paper: #F7F5EE; /* 暖白紙 — 主背景 */
+  --line:  #DDD8C8; /* 邊線 */
+
+  /* ---- Tints / shades (由 base 衍生，供 hover/背景使用) ---- */
+  --ink-700:  #163B22; /* 主按鈕 press */
+  --ink-900:  #0F2917;
+  --leaf-050: #EAF3EB; /* food 淡底 */
+  --honey-050:#FBF1DA; /* tribe 淡底 */
+  --clay-050: #F4E6DF; /* craft 淡底 */
+  --plum-050: #F0E7EE; /* weekday 淡底 */
+  --paper-hi: #FCFBF6; /* 卡片 / 抬升面 */
+  --paper-lo: #EFEBDF; /* 次背景 / 分隔帶 */
+
+  /* ---- Semantic text ---- */
+  --text-strong: var(--ink);      /* 標題、主文字 */
+  --text-body:   #2E3A31;         /* 內文 */
+  --text-muted:  #6A7568;         /* 次要說明、metadata */
+  --text-invert: var(--paper);    /* 深底上的文字 */
+
+  /* ---- Semantic surface ---- */
+  --surface-page:  var(--paper);
+  --surface-card:  var(--paper-hi);
+  --surface-sunken:var(--paper-lo);
+  --surface-ink:   var(--ink);    /* 深綠區塊 (footer / hero band) */
+
+  /* ---- Category system (food | craft | tribe | weekday) ---- */
+  --cat-food:    var(--leaf);
+  --cat-craft:   var(--clay);
+  --cat-tribe:   var(--honey);
+  --cat-weekday: var(--plum);
+  --cat-food-bg:    var(--leaf-050);
+  --cat-craft-bg:   var(--clay-050);
+  --cat-tribe-bg:   var(--honey-050);
+  --cat-weekday-bg: var(--plum-050);
+
+  /* ---- Lines / focus ---- */
+  --border:      var(--line);
+  --border-strong: #C7C0AC;
+  --focus-ring:  var(--leaf);
+}

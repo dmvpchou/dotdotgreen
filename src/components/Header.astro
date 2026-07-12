@@ -1,0 +1,24 @@
+---
+const { current = "" } = Astro.props;
+const NAV = [
+  { key: "brands", label: "品牌牆", href: "/brands" },
+  { key: "about", label: "關於", href: "/about" },
+  { key: "info", label: "市集資訊", href: "/info" },
+  { key: "join", label: "加入我們", href: "/join" },
+];
+---
+<header class="site-header">
+  <a href="/" class="brand-link">
+    <span class="brand-dots"><span></span><span></span><span></span></span>
+    <span class="brand-word">點點綠</span>
+  </a>
+  <nav class="site-nav">
+    {NAV.map((n) => <a href={n.href} class={current === n.key ? "active" : ""}>{n.label}</a>)}
+    <a href="/calendar" class="nav-cta">本週出攤</a>
+  </nav>
+  <button class="hamburger" aria-label="選單" aria-expanded="false"><span></span><span></span><span></span></button>
+  <div class="mobile-panel">
+    {NAV.map((n) => <a href={n.href} class={current === n.key ? "active" : ""}>{n.label}</a>)}
+    <a href="/calendar" class="nav-cta">本週出攤</a>
+  </div>
+</header>

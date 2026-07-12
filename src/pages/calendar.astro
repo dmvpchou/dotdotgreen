@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+---
+<BaseLayout title="本週出攤 · 點點綠官網" description="這一週誰在哪天出攤，一眼看完；也可以提前規劃整月行事曆。" current="" extraScripts={["/scripts/calendar.js"]}>
+
+  <section style="position:relative;overflow:hidden;padding:56px 0 8px">
+    <span class="scatter" style="top:24px;right:90px;width:96px;height:96px;background:color-mix(in srgb, var(--honey) 20%, transparent)"></span>
+    <div class="wrap" style="position:relative">
+      <SectionHeader eyebrow="出攤資訊" title="本週出攤" dotCategory="weekday" />
+      <p style="margin:14px 0 0;font-size:var(--fs-lg);font-weight:300;max-width:580px;line-height:1.8">
+        這一週誰在哪天出攤，一眼看完。週末是完整的假日市集，週間是輪替的小農攤車。想提前規劃，往下看整月行事曆。
+      </p>
+    </div>
+  </section>
+
+  <section class="wrap" style="padding:8px 24px 0">
+    <div class="week-strip" data-week-strip></div>
+    <p class="footnote-dot">每日實際名單以協會官網為準，臨時異動不另通知。</p>
+  </section>
+
+  <section class="wrap" style="padding:36px 24px 0">
+    <SectionHeader eyebrow="提前規劃" title="整月行事曆" dotCategory="food" />
+    <div class="cal-legend">
+      <span class="cal-legend-item"><span class="dot cat-food"></span>食品蔬果</span>
+      <span class="cal-legend-item"><span class="dot cat-tribe"></span>部落</span>
+      <span class="cal-legend-item"><span class="dot cat-craft"></span>手作</span>
+      <span class="cal-legend-item muted"><span class="cal-legend-swatch"></span>週末＝假日市集</span>
+    </div>
+  </section>
+
+  <section class="wrap" style="padding:24px 24px 64px">
+    <div class="cal-layout">
+      <div class="cal-main">
+        <div class="cal-head">
+          <h3 data-cal-head></h3>
+          <div class="cal-nav">
+            <button type="button" data-cal-prev aria-label="上個月">‹</button>
+            <button type="button" data-cal-next aria-label="下個月">›</button>
+          </div>
+        </div>
+        <div class="weekday-head">
+          <span class="weekend">日</span><span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span class="weekend">六</span>
+        </div>
+        <div class="cal-grid" data-cal-grid></div>
+      </div>
+      <aside class="cal-aside" data-cal-aside></aside>
+    </div>
+  </section>
+
+</BaseLayout>

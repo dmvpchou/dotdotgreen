@@ -1,0 +1,33 @@
+---
+const { brand } = Astro.props;
+const CATEGORY_LABEL = { food: "食品蔬果", craft: "手作", tribe: "部落", weekday: "週間攤車" };
+const SOCIALS = [
+  ["facebook", "f"],
+  ["instagram", "IG"],
+  ["line", "L"],
+  ["website", "↗"],
+];
+---
+<article class={"brand-card cat-" + brand.category} data-brand={brand.name} data-category={brand.category} tabindex="0" role="button">
+  <div class="brand-card-photo">
+    <span class="brand-card-signature"></span>
+    {brand.featured && <span class="brand-card-featured">精選</span>}
+  </div>
+  <div class="brand-card-body">
+    <div class="brand-card-title-row">
+      <h3 class="brand-card-title">{brand.name}</h3>
+      <span class={"tag cat-" + brand.category}><span class="tag-dot"></span>{CATEGORY_LABEL[brand.category]}</span>
+    </div>
+    <p class="brand-card-tagline">{brand.tagline}</p>
+    <div class="brand-card-foot">
+      <div class="brand-card-socials">
+        {SOCIALS.map(([key, glyph]) => brand[key] && (
+          <a class="social-btn" href={brand[key]} target="_blank" rel="noopener noreferrer">{glyph}</a>
+        ))}
+      </div>
+      {brand.attendDays && brand.attendDays.length > 0 && (
+        <span class="brand-card-days">出攤 {brand.attendDays.join("・")}</span>
+      )}
+    </div>
+  </div>
+</article>

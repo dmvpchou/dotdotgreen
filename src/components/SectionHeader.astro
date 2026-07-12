@@ -1,0 +1,7 @@
+---
+const { eyebrow, title, dotCategory = "food", invert = false } = Astro.props;
+---
+<div class={"section-head" + (invert ? " on-ink" : "")}>
+  <span class="eyebrow"><span class={"dot dot-sm cat-" + dotCategory}></span>{eyebrow}</span>
+  <h2 class="section-title">{title}</h2>
+</div>

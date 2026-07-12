@@ -1,0 +1,22 @@
+---
+const { market, order = "where-first", boxedNote = false } = Astro.props;
+---
+<article class={"market-card cat-" + market.category}>
+  <span class="market-card-blob"></span>
+  <span class="market-card-dot"></span>
+  <h3>{market.title}</h3>
+  <dl>
+    {order === "when-first" ? (
+      <>
+        <dt>時間</dt><dd style="font-weight:500">{market.when}</dd>
+        <dt>地點</dt><dd>{market.where}</dd>
+      </>
+    ) : (
+      <>
+        <dt>地點</dt><dd>{market.where}</dd>
+        <dt>時間</dt><dd>{market.when}</dd>
+      </>
+    )}
+  </dl>
+  <p class={boxedNote ? "note boxed" : "note"}>{market.note}</p>
+</article>

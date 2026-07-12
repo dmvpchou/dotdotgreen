@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import BrandCard from '../components/BrandCard.astro';
+import { getBrands } from '../data/brands';
+
+const brands = await getBrands();
+const counts = { all: brands.length };
+for (const b of brands) counts[b.category] = (counts[b.category] || 0) + 1;
+
+const CHIPS = [
+  { key: "all", label: "全部", catClass: "" },
+  { key: "food", label: "食品蔬果", catClass: "cat-food" },
+  { key: "craft", label: "手作", catClass: "cat-craft" },
+  { key: "tribe", label: "部落", catClass: "cat-tribe" },
+  { key: "weekday", label: "週間攤車", catClass: "cat-weekday" },
+];
+---
+<BaseLayout title="品牌牆 · 點點綠官網" description="台灣優質小農商品的櫥窗——認識點點綠市集裡友善耕作、部落與手作的品牌夥伴。" current="brands">
+
+  <section style="position:relative;overflow:hidden;padding:56px 0 8px">
+    <span class="scatter" style="top:30px;right:90px;width:90px;height:90px;background:color-mix(in srgb, var(--leaf) 20%, transparent)"></span>
+    <div class="wrap" style="position:relative">
+      <SectionHeader eyebrow="台灣優質小農商品的櫥窗" title="品牌牆" dotCategory="food" />
+      <p style="margin:14px 0 0;font-size:var(--fs-lg);font-weight:300;max-width:560px;line-height:1.8">
+        每個點背後都有努力的人。點進色點，認識這些友善耕作、部落與手作的夥伴，直接連上他們的社群。
+      </p>
+    </div>
+  </section>
+
+  <section class="wrap" style="position:sticky;top:var(--header-h);z-index:20;padding:20px 24px;background:color-mix(in srgb, var(--paper) 92%, transparent);backdrop-filter:blur(8px)">
+    <div class="filter-row">
+      {CHIPS.map((c) => (
+        <button type="button" class={"chip " + c.catClass} data-filter={c.key} aria-selected={c.key === "all" ? "true" : "false"} role="tab">
+          <span class="chip-dot" style={c.key === "all" ? "background:var(--honey)" : undefined}></span>
+          {c.label}
+          {counts[c.key] != null && <span class="chip-count">{counts[c.key]}</span>}
+        </button>
+      ))}
+    </div>
+  </section>
+
+  <section class="wrap" style="padding:12px 24px 64px">
+    <p style="font-size:var(--fs-sm);color:var(--text-muted);margin:0 0 20px" data-visible-count>{brands.length} 個品牌</p>
+    <div class="card-grid" data-card-grid>
+      {brands.map((b) => <BrandCard brand={b} />)}
+    </div>
+
+    <div class="collect-card">
+      <span>品牌照與社群連結持續向攤友收集中，部分卡片先以佔位呈現。</span>
+      <a href="https://forms.gle/ERn1sAgP4shYkeKB8" target="_blank" rel="noopener noreferrer">是攤友？補上資料 →</a>
+    </div>
+  </section>
+
+</BaseLayout>

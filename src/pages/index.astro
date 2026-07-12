@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import MarketCard from '../components/MarketCard.astro';
+import BrandCard from '../components/BrandCard.astro';
+import { getBrands } from '../data/brands';
+import { MARKETS } from '../data/markets';
+
+const brands = await getBrands();
+const featured = brands.filter((b) => b.featured).slice(0, 4);
+---
+<BaseLayout title="點點綠官網 · 首頁" description="點點綠市集 — 雙連捷運站的雙市集，無毒、環保、永續的台灣優質小農商品櫥窗。">
+
+  <section class="hero">
+    <span class="scatter" style="top:70px;right:120px;width:140px;height:140px;background:color-mix(in srgb, var(--honey) 26%, transparent)"></span>
+    <span class="scatter" style="top:220px;right:330px;width:44px;height:44px;background:var(--leaf);opacity:.5"></span>
+    <span class="scatter" style="bottom:40px;right:80px;width:24px;height:24px;background:var(--clay);opacity:.7"></span>
+    <span class="scatter" style="top:140px;left:60px;width:18px;height:18px;background:var(--leaf);opacity:.6"></span>
+    <div class="wrap" style="position:relative">
+      <span class="hero-kicker">
+        <span class="brand-dots"><span></span><span></span><span></span></span>
+        雙連捷運站 · 台北的雙市集
+      </span>
+      <h1 class="hero-title">每個點都有一個<br>永續的故事</h1>
+      <p class="hero-lede">無毒、環保、永續，台灣優質小農商品的櫥窗。搭捷運也能買菜，一出捷運就到。</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary btn-lg" href="/brands">逛品牌牆</a>
+        <a class="btn btn-secondary btn-lg btn-dot" href="/info">市集資訊</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap" style="padding:40px 24px 8px">
+    <SectionHeader eyebrow="台灣獨特的雙市集" title="週末逛市集，週間找攤車" dotCategory="tribe" />
+    <div class="market-grid" style="margin-top:28px">
+      {MARKETS.map((m) => <MarketCard market={m} order="where-first" />)}
+    </div>
+  </section>
+
+  <section class="wrap" style="padding:56px 24px">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:16px">
+      <SectionHeader eyebrow="品牌牆" title="每個點背後都有努力的人" dotCategory="food" />
+      <a class="btn btn-ghost" href="/brands">看全部品牌 →</a>
+    </div>
+    <div class="card-grid" style="margin-top:28px">
+      {featured.map((b) => <BrandCard brand={b} />)}
+    </div>
+  </section>
+
+  <section class="hero--ink" style="position:relative;overflow:hidden">
+    <span class="scatter" style="top:-30px;left:60px;width:120px;height:120px;background:color-mix(in srgb, var(--honey) 24%, transparent)"></span>
+    <span class="scatter" style="bottom:30px;right:120px;width:60px;height:60px;background:color-mix(in srgb, var(--leaf) 34%, transparent)"></span>
+    <div class="wrap" style="position:relative;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap">
+      <div style="max-width:560px" class="on-ink">
+        <SectionHeader eyebrow="加入我們" title="成為下一個點" dotCategory="tribe" invert />
+        <p style="margin:16px 0 0;font-size:var(--fs-lg);font-weight:300;line-height:1.8;color:color-mix(in srgb, var(--paper) 78%, transparent)">
+          小農的微型店面網絡，正在雙連、士林、石牌長出來。歡迎友善耕作、部落與手作夥伴一起擺攤。
+        </p>
+      </div>
+      <a class="btn btn-onInk btn-lg btn-dot" href="/join">了解如何加入</a>
+    </div>
+  </section>
+
+</BaseLayout>

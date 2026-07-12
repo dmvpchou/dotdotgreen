@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>市集資訊 · 點點綠官網</title>
+<meta name="description" content="一出捷運就到的有機早市——雙市集時間地點、週間攤車各站攤商與交通資訊。">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+
+<header class="site-header">
+  <a href="index.html" class="brand-link">
+    <span class="brand-dots"><span></span><span></span><span></span></span>
+    <span class="brand-word">點點綠</span>
+  </a>
+  <nav class="site-nav">
+    <a href="brands.html">品牌牆</a>
+    <a href="about.html">關於</a>
+    <a href="info.html" class="active">市集資訊</a>
+    <a href="join.html">加入我們</a>
+    <a href="calendar.html" class="nav-cta">本週出攤</a>
+  </nav>
+  <button class="hamburger" aria-label="選單" aria-expanded="false"><span></span><span></span><span></span></button>
+  <div class="mobile-panel">
+    <a href="brands.html">品牌牆</a>
+    <a href="about.html">關於</a>
+    <a href="info.html" class="active">市集資訊</a>
+    <a href="join.html">加入我們</a>
+    <a href="calendar.html" class="nav-cta">本週出攤</a>
+  </div>
+</header>
+
+<main>
+  <section style="position:relative;overflow:hidden;padding:56px 0 8px">
+    <span class="scatter" style="top:20px;right:100px;width:100px;height:100px;background:color-mix(in srgb, var(--honey) 20%, transparent)"></span>
+    <div class="wrap" style="position:relative">
+      <div class="section-head">
+        <span class="eyebrow"><span class="dot dot-sm cat-food"></span>搭捷運也能買菜</span>
+        <h2 class="section-title">市集資訊</h2>
+      </div>
+      <p style="margin:14px 0 0;font-size:var(--fs-lg);font-weight:300;max-width:560px;line-height:1.8">
+        一出捷運就到的有機早市。以下時間地點供參考，每日出攤店家名單以協會官網為準。
+      </p>
+    </div>
+  </section>
+
+  <section class="wrap" style="padding:36px 24px 8px">
+    <div class="market-grid">
+      <article class="market-card cat-food">
+        <span class="market-card-blob"></span>
+        <span class="market-card-dot"></span>
+        <h3>假日市集</h3>
+        <dl>
+          <dt>時間</dt><dd style="font-weight:500">每週六、日 09:00–15:00</dd>
+          <dt>地點</dt><dd>雙連捷運站 1 號出口廣場</dd>
+        </dl>
+        <p class="note boxed">盛夏 7–8 月調整為 08:00–13:00，避開午後高溫。</p>
+      </article>
+      <article class="market-card cat-weekday">
+        <span class="market-card-blob"></span>
+        <span class="market-card-dot"></span>
+        <h3>週間小農攤車</h3>
+        <dl>
+          <dt>時間</dt><dd style="font-weight:500">週二至週五 依站點輪替</dd>
+          <dt>地點</dt><dd>雙連站 / 士林站 / 石牌站</dd>
+        </dl>
+        <p class="note boxed">每日出攤店家名單以協會官網為準。</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="wrap" style="padding:20px 24px">
+    <div class="notice-band">盛夏 7–8 月，假日市集時段調整為 08:00–13:00，請提早來逛。</div>
+  </section>
+
+  <section style="background:var(--surface-sunken);padding:52px 0;margin-top:20px">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow"><span class="dot dot-sm cat-weekday"></span>週間攤車</span>
+        <h2 class="section-title">每站，不一樣的攤商</h2>
+      </div>
+      <p style="margin:14px 0 0;font-size:var(--fs-body);color:var(--text-muted);max-width:560px;line-height:1.8">
+        三個站點各有固定的週間攤商陣容。選一個站，看看那裡出沒的小農。
+      </p>
+
+      <div role="tablist" aria-label="週間攤車站點" class="station-tabs">
+        <button type="button" class="station-tab cat-food" data-station="shuanglian" role="tab" aria-selected="true"><span class="dot"></span>雙連站<span class="count">2</span></button>
+        <button type="button" class="station-tab cat-weekday" data-station="shilin" role="tab" aria-selected="false"><span class="dot"></span>士林站<span class="count">3</span></button>
+        <button type="button" class="station-tab cat-tribe" data-station="shipai" role="tab" aria-selected="false"><span class="dot"></span>石牌站<span class="count">2</span></button>
+      </div>
+
+      <div class="station-meta active" data-station-key="shuanglian"><span class="line">淡水信義線 R13</span><span>·</span><span>週二～週五</span><span>·</span><span>1 號出口廣場，假日市集主場，週間也有攤車。</span></div>
+      <div class="station-meta" data-station-key="shilin"><span class="line">淡水信義線 R15</span><span>·</span><span>週二～週五</span><span>·</span><span>週間小農攤車輪替站點。</span></div>
+      <div class="station-meta" data-station-key="shipai"><span class="line">淡水信義線 R17</span><span>·</span><span>週二～週五</span><span>·</span><span>週間小農攤車輪替站點。</span></div>
+
+      <div class="station-panel active" data-station-key="shuanglian">
+        <div class="card-grid">
+          <article class="brand-card cat-food" data-brand="輝要" data-category="food" tabindex="0" role="button">
+            <div class="brand-card-photo"><span class="brand-card-signature"></span></div>
+            <div class="brand-card-body">
+              <div class="brand-card-title-row"><h3 class="brand-card-title">輝要</h3><span class="tag cat-food"><span class="tag-dot"></span>食品蔬果</span></div>
+              <p class="brand-card-tagline">阿輝的當令青蔬，要新鮮就找他。</p>
+              <div class="brand-card-foot"><div class="brand-card-socials"><a class="social-btn" href="#" target="_blank" rel="noopener noreferrer">f</a></div><span class="brand-card-days">出攤 三・五</span></div>
+            </div>
+          </article>
+          <article class="brand-card cat-tribe" data-brand="Wagi" data-category="tribe" tabindex="0" role="button">
+            <div class="brand-card-photo"><span class="brand-card-signature"></span><span class="brand-card-featured">精選</span></div>
+            <div class="brand-card-body">
+              <div class="brand-card-title-row"><h3 class="brand-card-title">Wagi</h3><span class="tag cat-tribe"><span class="tag-dot"></span>部落</span></div>
+              <p class="brand-card-tagline">來自山上的蜂蜜與小米，純粹如初。</p>
+              <div class="brand-card-foot"><div class="brand-card-socials"><a class="social-btn" href="#" target="_blank" rel="noopener noreferrer">IG</a></div><span class="brand-card-days">出攤 二・四</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="station-panel" data-station-key="shilin">
+        <div class="card-grid">
+          <article class="brand-card cat-tribe" data-brand="部落e購" data-category="tribe" tabindex="0" role="button">
+            <div class="brand-card-photo"><span class="brand-card-signature"></span><span class="brand-card-featured">精選</span></div>
+            <div class="brand-card-body">
+              <div class="brand-card-title-row"><h3 class="brand-card-title">部落e購</h3><span class="tag cat-tribe"><span class="tag-dot"></span>部落</span></div>
+              <p class="brand-card-tagline">把部落的好物，帶到捷運站出口。</p>
+              <div class="brand-card-foot"><div class="brand-card-socials"><a class="social-btn" href="#" target="_blank" rel="noopener noreferrer">f</a><a class="social-btn" href="#" target="_blank" rel="noopener noreferrer">IG</a></div><span class="brand-card-days">出攤 二・四</span></div>
+            </div>
+          </article>
+          <article class="brand-card cat-tribe" data-brand="清淨母語" data-category="tribe" tabindex="0" role="button">
+            <div class="brand-card-photo"><span class="brand-card-signature"></span><span class="brand-card-featured">精選</span></div>
+            <div class="brand-card-body">
+              <div class="brand-card-title-row"><h3 class="brand-card-title">清淨母語</h3><span class="tag cat-tribe"><span class="tag-dot"></span>部落</span></div>
+              <p class="brand-card-tagline">循古法製作，留住部落的味道。</p>
+              <div class="brand-card-foot"><div class="brand-card-socials"><a class="social-btn" href="#" target="_blank" rel="noopener noreferrer">f</a><a class="social-btn" href="#" target="_blank" rel="noopener noreferrer">↗</a></div><span class="brand-card-days">出攤 二・四</span></div>
+            </div>
+          </article>
+          <article class="brand-card cat-food" data-brand="御品園" data-category="food" tabindex="0" role="button">
+            <div class="brand-card-photo"><span class="brand-card-signature"></span></div>
+            <div class="brand-card-body">
+              <div class="brand-card-title-row"><h3 class="brand-card-title">御品園</h3><span class="tag cat-food"><span class="tag-dot"></span>食品蔬果</span></div>
+              <p class="brand-card-tagline">無毒栽培的溫室好果，甜而不膩。</p>
+              <div class="brand-card-foot"><div class="brand-card-socials"><a class="social-btn" href="#" target="_blank" rel="noopener noreferrer">f</a></div><span class="brand-card-days">出攤 五・六</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="station-panel" data-station-key="shipai">
+        <div class="card-grid">
+          <article class="brand-card cat-tribe" data-brand="清淨母語" data-category="tribe" tabindex="0" role="button">
+            <div class="brand-card-photo"><span class="brand-card-signature"></span><span class="brand-card-featured">精選</span></div>
+            <div class="brand-card-body">
+              <div class="brand-card-title-row"><h3 class="brand-card-title">清淨母語</h3><span class="tag cat-tribe"><span class="tag-dot"></span>部落</span></div>
+              <p class="brand-card-tagline">循古法製作，留住部落的味道。</p>
+              <div class="brand-card-foot"><div class="brand-card-socials"><a class="social-btn" href="#" target="_blank" rel="noopener noreferrer">f</a><a class="social-btn" href="#" target="_blank" rel="noopener noreferrer">↗</a></div><span class="brand-card-days">出攤 二・四</span></div>
+            </div>
+          </article>
+          <article class="brand-card cat-tribe" data-brand="太魯閣767" data-category="tribe" tabindex="0" role="button">
+            <div class="brand-card-photo"><span class="brand-card-signature"></span></div>
+            <div class="brand-card-body">
+              <div class="brand-card-title-row"><h3 class="brand-card-title">太魯閣767</h3><span class="tag cat-tribe"><span class="tag-dot"></span>部落</span></div>
+              <p class="brand-card-tagline">峽谷海拔的高冷蔬果，脆甜有勁。</p>
+              <div class="brand-card-foot"><div class="brand-card-socials"><a class="social-btn" href="#" target="_blank" rel="noopener noreferrer">f</a></div><span class="brand-card-days">出攤 四・五</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <p class="footnote-dot">實際出攤以協會官網每日名單為準；站點陸續增加中。</p>
+    </div>
+  </section>
+
+  <section class="wrap" style="padding:52px 24px 8px">
+    <div class="section-head">
+      <span class="eyebrow"><span class="dot dot-sm cat-tribe"></span>交通</span>
+      <h2 class="section-title">站點都在淡水信義線上</h2>
+    </div>
+    <div class="station-info-grid">
+      <div class="station-info-card">
+        <div class="station-info-head"><span class="dot cat-food"></span><h3>雙連站</h3></div>
+        <p class="line">淡水信義線 R13</p>
+        <p class="note">1 號出口廣場，假日市集主場，週間也有攤車。</p>
+      </div>
+      <div class="station-info-card">
+        <div class="station-info-head"><span class="dot cat-weekday"></span><h3>士林站</h3></div>
+        <p class="line">淡水信義線 R15</p>
+        <p class="note">週間小農攤車輪替站點。</p>
+      </div>
+      <div class="station-info-card">
+        <div class="station-info-head"><span class="dot cat-tribe"></span><h3>石牌站</h3></div>
+        <p class="line">淡水信義線 R17</p>
+        <p class="note">週間小農攤車輪替站點。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap" style="padding:28px 24px 64px">
+    <div class="map-placeholder">
+      <span class="map-pin" style="top:40%;left:30%;width:20px;height:20px;background:var(--cat-food)"></span>
+      <span class="map-pin" style="top:26%;left:60%;width:16px;height:16px;background:var(--cat-weekday)"></span>
+      <span class="map-pin" style="top:64%;left:72%;width:16px;height:16px;background:var(--cat-tribe)"></span>
+      <span class="map-label">map · 雙連 / 士林 / 石牌</span>
+    </div>
+    <div style="margin-top:28px">
+      <a class="btn btn-primary btn-dot" href="https://ddg.gdg.asia/" target="_blank" rel="noopener noreferrer">看本週出攤名單</a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <span class="scatter" style="top:-30px;right:40px;width:120px;height:120px;background:color-mix(in srgb, var(--honey) 22%, transparent)"></span>
+  <span class="scatter" style="bottom:40px;right:160px;width:40px;height:40px;background:color-mix(in srgb, var(--leaf) 30%, transparent)"></span>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-brand-head">
+        <span class="brand-dots"><span></span><span></span><span></span></span>
+        <span class="brand-word">點點綠</span>
+      </div>
+      <p>每個點都有一個永續的故事。<br>雙連捷運站週末市集 · 士林／石牌站週間小農攤車。<br>水花園有機農學市集的姊妹市集。</p>
+    </div>
+    <div class="footer-col">
+      <span class="footer-col-title">逛市集</span>
+      <a href="brands.html">品牌牆</a>
+      <a href="info.html">市集資訊</a>
+      <a href="https://ddg.gdg.asia/" target="_blank" rel="noopener noreferrer">本週出攤</a>
+    </div>
+    <div class="footer-col">
+      <span class="footer-col-title">認識我們</span>
+      <a href="about.html">關於點點綠</a>
+      <a href="join.html">加入我們</a>
+      <a href="https://www.facebook.com/dotgreenmarket/" target="_blank" rel="noopener noreferrer">FB 粉專</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 點點綠市集 · 台北市文化探索協會</span>
+    <span>與 <a href="https://ddg.gdg.asia/" target="_blank" rel="noopener noreferrer">協會官網</a> 共存互連</span>
+  </div>
+</footer>
+
+<div class="sheet-overlay"><div class="sheet-panel"></div></div>
+<canvas id="dot-trail" aria-hidden="true" style="position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:95"></canvas>
+
+<script src="assets/data.js"></script>
+<script src="assets/mouse-trail.js"></script>
+<script src="assets/site.js"></script>
+</body>
+</html>

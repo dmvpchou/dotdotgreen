@@ -1,9 +1,9 @@
 ---
-name: "輝要"
+name: "輝要有機菜園"
 category: "food"
-tagline: "阿輝的當令青蔬，要新鮮就找他。"
-attendDays: ["三", "五"]
-stations: ["shuanglian"]
-facebook: "#"
+tagline: "以有機蔬菜為主的友善農產品牌。"
+sourceUrl: "https://greenmedia.today/article_detail.php?cid=18&mid=1262"
+sourcePublishedAt: "2025-01-08"
+sourceNote: "公開文章列出的品牌與品項；非即時出攤證明。"
 ---
-一人顧一攤的葉菜達人阿輝。清晨採收、中午前售完，主打最不耐放、最需要新鮮的葉菜類。
+公開資料列出輝要有機菜園的主要品項為有機蔬菜。實際品項與出攤時間以市集最新公告為準。

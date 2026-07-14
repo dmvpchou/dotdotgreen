@@ -1,9 +1,9 @@
 ---
-name: "御品園"
+name: "御品園放牧蛋"
 category: "food"
-tagline: "無毒栽培的溫室好果，甜而不膩。"
-attendDays: ["五", "六"]
-stations: ["shilin"]
-facebook: "#"
+tagline: "重視動物福利的放牧蛋。"
+sourceUrl: "https://greenmedia.today/article_detail.php?cid=18&mid=1262"
+sourcePublishedAt: "2025-01-08"
+sourceNote: "公開文章列出的品牌與品項；非即時出攤證明。"
 ---
-溫室無毒栽培的番茄與草莓，安心到可以直接放進嘴裡。甜而不膩，孩子最買單。
+公開資料介紹御品園的主要品項為動物福利放牧蛋。實際品項與出攤時間以市集最新公告為準。

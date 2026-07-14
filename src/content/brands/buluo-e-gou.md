@@ -1,11 +1,10 @@
 ---
 name: "部落e購"
 category: "tribe"
-tagline: "把部落的好物，帶到捷運站出口。"
+tagline: "串連原住民部落農產的共同產銷平台。"
 featured: true
-attendDays: ["二", "四"]
-stations: ["shilin"]
-facebook: "#"
-instagram: "#"
+sourceUrl: "https://greenmedia.today/article_detail.php?cid=18&mid=1262"
+sourcePublishedAt: "2025-01-08"
+sourceNote: "公開文章列出的品牌與品項；非即時出攤證明。"
 ---
-串連多個原鄉部落的小農合作平台，把山上的小米、香菇、段木木耳帶下山。每一樣都寫得出是哪個部落、哪位族人種的。
+公開資料將部落e購介紹為原住民部落共同產銷平台，展售部落農產。實際品項與出攤時間以市集最新公告為準。

@@ -1,9 +1,9 @@
 ---
-name: "太魯閣767"
-category: "tribe"
-tagline: "峽谷海拔的高冷蔬果，脆甜有勁。"
-attendDays: ["四", "五"]
-stations: ["shipai"]
-facebook: "#"
+name: "花蓮太魯閣767農場"
+category: "food"
+tagline: "樹葡萄冰酒與白蘭地等地方農產。"
+sourceUrl: "https://greenmedia.today/article_detail.php?cid=18&mid=1264"
+sourcePublishedAt: "2025-01-13"
+sourceNote: "公開文章列出的品牌與品項；非即時出攤證明。"
 ---
-來自太魯閣峽谷海拔 767 的高冷蔬果。溫差養出來的高麗菜與番茄，脆甜有勁。
+公開資料曾介紹花蓮太魯閣767農場的樹葡萄冰酒與白蘭地禮盒。實際品項與出攤時間以市集最新公告為準。

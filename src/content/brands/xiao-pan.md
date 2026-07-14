@@ -1,8 +1,9 @@
 ---
-name: "小潘"
+name: "小潘有機農場"
 category: "food"
-tagline: "手工烘焙點心，剛出爐最好吃。"
-attendDays: ["六", "日"]
-instagram: "#"
+tagline: "依產季提供草莓等有機農產。"
+sourceUrl: "https://greenmedia.today/article_detail.php?cid=18&mid=1262"
+sourcePublishedAt: "2025-01-08"
+sourceNote: "公開文章列出的品牌與品項；非即時出攤證明。"
 ---
-沒有店面的家庭烘焙，用在地食材做司康、磅蛋糕與餅乾。數量有限，賣完為止。
+公開資料曾在草莓產季列出小潘有機農場的草莓。農產品依季節變動，實際品項與出攤時間以市集最新公告為準。

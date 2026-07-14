@@ -1,9 +1,10 @@
 ---
 name: "樂穠"
-category: "food"
-tagline: "友善耕作的當季蔬菜，帶著土的溫度。"
+category: "tribe"
+tagline: "泰雅部落蔬果、小米與馬告風味農產。"
 featured: true
-attendDays: ["三", "六", "日"]
-facebook: "#"
+sourceUrl: "https://greenmedia.today/article_detail.php?cid=18&mid=1262"
+sourcePublishedAt: "2025-01-08"
+sourceNote: "公開文章列出的品牌與品項；非即時出攤證明。"
 ---
-堅持友善耕作、不用除草劑的小農園。菜單跟著節氣走，長什麼就賣什麼，帶著剛從田裡拔出來的土味。
+公開資料介紹樂穠帶來台中大安溪泰雅部落蔬果、小米與馬告醃肉。實際品項與出攤時間以市集最新公告為準。

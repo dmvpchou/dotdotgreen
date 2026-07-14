@@ -2,22 +2,17 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SectionHeader from '../components/SectionHeader.astro';
 import MarketCard from '../components/MarketCard.astro';
-import BrandCard from '../components/BrandCard.astro';
-import { getBrands, brandsAtStation } from '../data/brands';
 import { STATIONS } from '../data/stations';
 import { MARKETS } from '../data/markets';
-
-const brands = await getBrands();
-const defaultStation = STATIONS[0].key;
 ---
-<BaseLayout title="市集資訊 · 點點綠官網" description="一出捷運就到的有機早市——雙市集時間地點、週間攤車各站攤商與交通資訊。" current="info">
+<BaseLayout title="市集資訊 · 點點綠官網" description="一出捷運就到的友善市集——假日市集與週間小農攤車的時間、地點及交通資訊。" current="info">
 
   <section style="position:relative;overflow:hidden;padding:56px 0 8px">
     <span class="scatter" style="top:20px;right:100px;width:100px;height:100px;background:color-mix(in srgb, var(--honey) 20%, transparent)"></span>
     <div class="wrap" style="position:relative">
       <SectionHeader eyebrow="搭捷運也能買菜" title="市集資訊" dotCategory="food" />
-      <p style="margin:14px 0 0;font-size:var(--fs-lg);font-weight:300;max-width:560px;line-height:1.8">
-        一出捷運就到的有機早市。以下時間地點供參考，每日出攤店家名單以協會官網為準。
+      <p style="margin:14px 0 0;font-size:var(--fs-lg);font-weight:300;max-width:620px;line-height:1.8">
+        一出捷運就到的友善市集。營業時段與站點依協會現行公開資訊整理；每週出攤品牌仍以粉專最新公告為準。
       </p>
     </div>
   </section>
@@ -29,64 +24,42 @@ const defaultStation = STATIONS[0].key;
   </section>
 
   <section class="wrap" style="padding:20px 24px">
-    <div class="notice-band">盛夏 7–8 月，假日市集時段調整為 08:00–13:00，請提早來逛。</div>
+    <div class="notice-band">小農出攤會受產季、天候與臨時請假影響；出發前請先查看點點綠 Facebook 粉專。</div>
   </section>
 
   <section style="background:var(--surface-sunken);padding:52px 0;margin-top:20px">
     <div class="wrap">
-      <SectionHeader eyebrow="週間攤車" title="每站，不一樣的攤商" dotCategory="weekday" />
-      <p style="margin:14px 0 0;font-size:var(--fs-body);color:var(--text-muted);max-width:560px;line-height:1.8">
-        三個站點各有固定的週間攤商陣容。選一個站，看看那裡出沒的小農。
+      <SectionHeader eyebrow="週間攤車" title="四個捷運站，依公告輪替" dotCategory="weekday" />
+      <p style="margin:14px 0 24px;font-size:var(--fs-body);color:var(--text-muted);max-width:620px;line-height:1.8">
+        目前公開站點為雙連、士林、石牌與北投。既有設計稿中的固定攤商分配沒有可靠來源，因此本站不先刊登，待主辦方提供可維護的班表後再接入。
       </p>
 
-      <div role="tablist" aria-label="週間攤車站點" class="station-tabs">
+      <div class="station-info-grid">
         {STATIONS.map((s) => (
-          <button type="button" class={"station-tab cat-" + (s.key === "shuanglian" ? "food" : s.key === "shilin" ? "weekday" : "tribe")} data-station={s.key} role="tab" aria-selected={s.key === defaultStation ? "true" : "false"}>
-            <span class="dot"></span>{s.name}<span class="count">{brandsAtStation(brands, s.key).length}</span>
-          </button>
+          <div class="station-info-card">
+            <div class="station-info-head"><span class="dot" style={`background:${s.dot}`}></span><h3>{s.name}</h3></div>
+            <p class="line">{s.line} · {s.days}</p>
+            <p class="note">{s.note}</p>
+          </div>
         ))}
       </div>
 
-      {STATIONS.map((s) => (
-        <div class={"station-meta" + (s.key === defaultStation ? " active" : "")} data-station-key={s.key}>
-          <span class="line">{s.line}</span><span>·</span><span>{s.days}</span><span>·</span><span>{s.note}</span>
-        </div>
-      ))}
-
-      {STATIONS.map((s) => (
-        <div class={"station-panel" + (s.key === defaultStation ? " active" : "")} data-station-key={s.key}>
-          <div class="card-grid">
-            {brandsAtStation(brands, s.key).map((b) => <BrandCard brand={b} />)}
-          </div>
-        </div>
-      ))}
-
-      <p class="footnote-dot">實際出攤以協會官網每日名單為準；站點陸續增加中。</p>
+      <p class="footnote-dot">北投站已於 2026 年 7 月 1 日初登場；目前先視為活躍試點，實際出攤日仍以當週公告為準。</p>
     </div>
   </section>
 
-  <section class="wrap" style="padding:52px 24px 8px">
+  <section class="wrap" style="padding:52px 24px 64px">
     <SectionHeader eyebrow="交通" title="站點都在淡水信義線上" dotCategory="tribe" />
-    <div class="station-info-grid">
-      {STATIONS.map((s) => (
-        <div class="station-info-card">
-          <div class="station-info-head"><span class={"dot cat-" + (s.key === "shuanglian" ? "food" : s.key === "shilin" ? "weekday" : "tribe")}></span><h3>{s.name}</h3></div>
-          <p class="line">{s.line}</p>
-          <p class="note">{s.note}</p>
-        </div>
-      ))}
-    </div>
-  </section>
-
-  <section class="wrap" style="padding:28px 24px 64px">
-    <div class="map-placeholder">
+    <div class="map-placeholder" style="margin-top:24px">
       <span class="map-pin" style="top:40%;left:30%;width:20px;height:20px;background:var(--cat-food)"></span>
       <span class="map-pin" style="top:26%;left:60%;width:16px;height:16px;background:var(--cat-weekday)"></span>
       <span class="map-pin" style="top:64%;left:72%;width:16px;height:16px;background:var(--cat-tribe)"></span>
-      <span class="map-label">map · 雙連 / 士林 / 石牌</span>
+      <span class="map-pin" style="top:18%;left:78%;width:16px;height:16px;background:var(--honey)"></span>
+      <span class="map-label">map · 雙連 / 士林 / 石牌 / 北投</span>
     </div>
-    <div style="margin-top:28px">
-      <a class="btn btn-primary btn-dot" href="https://ddg.gdg.asia/" target="_blank" rel="noopener noreferrer">看本週出攤名單</a>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:28px">
+      <a class="btn btn-primary btn-dot" href="https://www.facebook.com/dotgreenmarket/" target="_blank" rel="noopener noreferrer">看最新出攤公告</a>
+      <a class="btn btn-secondary" href="https://ddg.gdg.asia/" target="_blank" rel="noopener noreferrer">協會官網</a>
     </div>
   </section>
 

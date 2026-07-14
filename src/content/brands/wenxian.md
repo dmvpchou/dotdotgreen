@@ -1,8 +1,9 @@
 ---
-name: "文獻"
-category: "craft"
-tagline: "手感陶作與生活器物，慢慢用。"
-attendDays: ["日"]
-instagram: "#"
+name: "文獻農場"
+category: "food"
+tagline: "蔬果酵素與果乾。"
+sourceUrl: "https://greenmedia.today/article_detail.php?cid=18&mid=1262"
+sourcePublishedAt: "2025-01-08"
+sourceNote: "公開文章列出的品牌與品項；非即時出攤證明。"
 ---
-獨立陶藝工作室，做碗盤杯壺這些每天會用到的器物。手感的溫度，值得慢慢用。
+公開資料列出文獻農場的品項包含蔬果酵素與果乾。實際品項與出攤時間以市集最新公告為準。

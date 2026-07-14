@@ -1,10 +1,10 @@
 ---
 name: "吉果園"
 category: "food"
-tagline: "高山果園直送，甜度是海拔給的。"
+tagline: "來自花蓮中橫的高山蔬菜與當季農產。"
 featured: true
-attendDays: ["六", "日"]
-facebook: "#"
-instagram: "#"
+sourceUrl: "https://greenmedia.today/article_detail.php?cid=18&mid=1262"
+sourcePublishedAt: "2025-01-08"
+sourceNote: "公開文章列出的品牌與品項；非即時出攤證明。"
 ---
-位在中海拔的家庭果園，只採當季、當日現摘。從梨、桃到柑橘，甜度靠的是海拔與日夜溫差，不是催熟。週末在雙連站等你試吃。
+公開資料介紹吉果園來自花蓮中橫，曾帶來高山蔬菜、高山高麗菜與白蘿蔔。實際品項與出攤時間以市集最新公告為準。

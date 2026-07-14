@@ -1,9 +1,9 @@
 ---
-name: "瑞田"
+name: "南澳瑞田農場"
 category: "food"
-tagline: "一畝好田，種出安心的米與雜糧。"
-attendDays: ["六", "日"]
-facebook: "#"
-line: "#"
+tagline: "有機蔬果與甜酒釀。"
+sourceUrl: "https://greenmedia.today/article_detail.php?cid=18&mid=1262"
+sourcePublishedAt: "2025-01-08"
+sourceNote: "公開文章列出的品牌與品項；非即時出攤證明。"
 ---
-專種稻米與雜糧的老農家，一期一會的新米、紅藜與黑豆。現碾現賣，讓你聞得到米香。
+公開資料介紹南澳瑞田農場的品項包含有機蔬果與甜酒釀。實際品項與出攤時間以市集最新公告為準。

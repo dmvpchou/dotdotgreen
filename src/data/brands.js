@@ -10,7 +10,7 @@ export const CATEGORY_META = {
 
 // 讀出所有品牌，轉成一般 plain object（含 markdown body 當作 about 純文字）。
 export async function getBrands() {
-  const entries = await getCollection('brands');
+  const entries = await getCollection('brands', ({ data }) => !data.draft);
   return entries.map((entry) => ({
     ...entry.data,
     about: entry.body.trim(),
